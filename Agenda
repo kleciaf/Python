@@ -1,0 +1,52 @@
+print('Agenda')
+def menu():
+   opcao= input(''''
+=======================================================
+                     PROJETO AGENDA EM PHYTON                
+    
+ MENU:
+    
+[1] NOME DO CONTATO
+[2] LISTAR DE CONTATO
+[3] DELETAR CONTATO
+[4] BUSCAR CONTATO
+    
+=====================================================
+ESCOLHA UMA OPÇÃO ACIMA:
+''')
+   if opcao == "1":
+       cadastrarContato()
+   elif opcao == "2":
+       listarContato()
+   elif opcao == "3":
+       deletarContato()
+   else:
+       buscarContato()
+
+def cadastrarContato():
+    nome = input("Digite seu nome:")
+    telefone = input("Digite o numero do telefone:")
+    email = input("Digite seu email:")
+    try:
+     agenda = open("agenda.txt","a")
+     dados = f'{nome};{telefone};{email}\n'
+     agenda.write(dados)
+     agenda.close()
+     print(f'contato gravado com sucesso!!!')
+    except:
+     print("ERRO na gravação do contato")
+
+def listarContato():
+  print(f'listar contato')
+
+def deletarContato():
+    print(f'Deletar contato')
+
+def buscarContato():
+    print(f'Buscar contato')
+
+
+def main():
+    menu()
+
+main()
